@@ -198,11 +198,11 @@ module.exports = {
       .where({'state':state})
       .where({'app_name':appName})
       .where(function(){
-        this.where('name','ILIKE',searchKeyword)
-            .orWhere('father_name', 'ILIKE',searchKeyword)
-            .orWhere('adhar_card_number','ILIKE',searchKeyword)
-            .orWhere('phone_no','ILIKE',searchKeyword)
-            .orWhere('address','ILIKE',searchKeyword)
+        this.where('name','LIKE',searchKeyword)
+            .orWhere('father_name', 'LIKE',searchKeyword)
+            .orWhere('adhar_card_number','LIKE',searchKeyword)
+            .orWhere('phone_no','LIKE',searchKeyword)
+            .orWhere('address','LIKE',searchKeyword)
       })
       .fetchPage({
         limit: limit,
@@ -461,11 +461,11 @@ module.exports = {
         .orWhere({'state' :'all'})
       })
       .where(function(){
-            this.where('name','ILIKE',searchKeyword)
-            .orWhere('type', 'ILIKE',searchKeyword)
-            .orWhere('designation','ILIKE',searchKeyword)
-            .orWhere('email','ILIKE',searchKeyword)
-            .orWhere('phone','ILIKE',searchKeyword)
+            this.where('name','LIKE',searchKeyword)
+            .orWhere('type', 'LIKE',searchKeyword)
+            .orWhere('designation','LIKE',searchKeyword)
+            .orWhere('email','LIKE',searchKeyword)
+            .orWhere('phone','LIKE',searchKeyword)
       })
       .fetchPage({
         limit: limit,
@@ -730,11 +730,11 @@ module.exports = {
       .where({'state':state})
       .where({'app_name':appName})
       .where(function(){
-        this.where('name', 'ILIKE',searchKeyword)
-        .orWhere('father_or_mother_name', 'ILIKE',searchKeyword)
-        .orWhere('email', 'ILIKE',searchKeyword)
-        .orWhere('phone', 'ILIKE',searchKeyword)
-        .orWhere('district','ILIKE',searchKeyword)
+        this.where('name', 'LIKE',searchKeyword)
+        .orWhere('father_or_mother_name', 'LIKE',searchKeyword)
+        .orWhere('email', 'LIKE',searchKeyword)
+        .orWhere('phone', 'LIKE',searchKeyword)
+        .orWhere('district','LIKE',searchKeyword)
       })
       .fetchPage({
         limit: limit,
