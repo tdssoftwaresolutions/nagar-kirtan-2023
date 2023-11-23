@@ -3,7 +3,6 @@ const path = require('path')
 const cors  = require('cors')
 const PORT = process.env.PORT || 5000
 const bodyParser = require('body-parser');
-const admin = require('firebase-admin');
 
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')))
@@ -15,8 +14,8 @@ app.use(express.static(__dirname + 'public'));
 
 var corsOptions = {
   origins: [
-    "file:///C:/Users/Tarandeep/Desktop/JJJK/party_information.html",
-    "http://jjjk.mebonix.in"
+    "https://gurdwaraanandvihar.com",
+    "https://nagarkirtan.gurdwaraanandvihar.com/"
   ],
   credentials: true,
   optionSuccessStatus: 200

@@ -1,7 +1,7 @@
 const bookshelf = require('../database.js');
 
 var CacheData = bookshelf.Model.extend({
-  tableName: 'cache_user_data',
+  tableName: 'location_data',
   hasTimestamps: true,
 });
 
