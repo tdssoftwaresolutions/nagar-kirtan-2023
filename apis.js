@@ -5,8 +5,9 @@ module.exports = {
   updateLocation : async function(req,res){
     let fetchedAppUser;
     await CacheData
-    .fetch()
+    .fetchAll()
     .then((lFetchedAppUser) => {
+      console.log(lFetchedAppUser);
       fetchedAppUser = lFetchedAppUser;
     })
     .catch((err) => {
