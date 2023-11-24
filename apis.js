@@ -33,17 +33,17 @@ module.exports = {
     }
   },
   getLocation : async function(req,res){
-    let location;
+    let user;
     await await CacheData.where('id',1)
         .fetch()
         .then((lUser) => {
-              location = lUser.attributes.location;
+              user = lUser;
             }
         })
         .catch((err) => {
             console.log('Error---' + err);
-            location = undefined;
+            user = undefined;
     });
-    res.json(location);
+    res.json(user);
   }
 }
