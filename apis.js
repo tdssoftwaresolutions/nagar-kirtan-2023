@@ -3,15 +3,25 @@ const CacheData = require("./models/CacheData.js");
 module.exports = {
 
   updateLocation : async function(req,res){
-    var data = req.body.location;
-    var returnData = await CacheData.forge({
-      location : location,
-    }).save();
-    if(returnData!= null && returnData != undefined){
-      res.json({"status":"Success"});
+    let fetchedAppUser;
+    await CacheData
+    .fetch()
+    .then((lFetchedAppUser) => {
+      fetchedAppUser = lFetchedAppUser;
+    })
+    .catch((err) => {
+      fetchedAppUser = undefined;
+    });
+    if(fetchedAppUser != null && fetchedAppUser!= undefined){
+      await fetchedAppUser.save({
+        location : req.body.location
+      });
     }else{
-      res.json({"status":"Error"});
+      await CacheData.forge({
+        location : req.body.location
+      }).save();
     }
+    res.json({"message":"Successfully updated"});
   },
   getLocation : async function(req,res){
     let qUser;
