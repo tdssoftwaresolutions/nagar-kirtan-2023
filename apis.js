@@ -38,7 +38,6 @@ module.exports = {
         .fetch()
         .then((lUser) => {
               user = lUser;
-            }
         })
         .catch((err) => {
             console.log('Error---' + err);
