@@ -4,8 +4,8 @@ module.exports = {
 
   updateLocation : async function(req,res){
     let fetchedAppUser;
-    await CacheData
-    .fetchAll()
+    await CacheData.where('id',1)
+    .fetch()
     .then((lFetchedAppUser) => {
       console.log(lFetchedAppUser);
       if(lFetchedAppUser.models.length > 0){
@@ -21,7 +21,8 @@ module.exports = {
       });
     }else{
       await CacheData.forge({
-        location : req.body.location
+        location : req.body.location,
+        id : 1
       }).save();
     }
     res.json({"message":"Successfully updated"});
