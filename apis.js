@@ -8,7 +8,9 @@ module.exports = {
     .fetchAll()
     .then((lFetchedAppUser) => {
       console.log(lFetchedAppUser);
-      fetchedAppUser = lFetchedAppUser;
+      if(lFetchedAppUser.models.length > 0){
+        fetchedAppUser = lFetchedAppUser.models[0];
+      }
     })
     .catch((err) => {
       fetchedAppUser = undefined;
