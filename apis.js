@@ -1,5 +1,7 @@
 const CacheData = require("./models/CacheData.js");
 const Donation = require("./models/Donation.js");
+const Contact = require("./models/ContactForm.js");
+const Newsletter = require("./models/Newsletter.js");
 
 module.exports = {
 
@@ -56,6 +58,29 @@ module.exports = {
         address : req.body.address,
         state : req.body.state,
         donationFor : req.body.donationFor,
+        comments : req.body.comments
+      }).save();
+      res.json({success:true});
+    }catch(e){
+      res.json({success:false,error:e});
+    }
+  },
+  subscribeNewsletter : async function(req,res){
+    try{
+      await Newsletter.forge({
+        emailAddress : req.body.emailAddress
+      }).save();
+      res.json({success:true});
+    }catch(e){
+      res.json({success:false,error:e});
+    }
+  },
+  contact : async function(req,res){
+    try{
+      await Contact.forge({
+        name : req.body.name,
+        emailAddress : req.body.emailAddress,
+        subject : req.body.subject,
         comments : req.body.comments
       }).save();
       res.json({success:true});
