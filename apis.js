@@ -1,4 +1,5 @@
 const CacheData = require("./models/CacheData.js");
+const Donation = require("./models/Donation.js");
 
 module.exports = {
 
@@ -44,5 +45,21 @@ module.exports = {
             user = undefined;
     });
     res.json(user);
+  },
+  newDonation : async function(req,res){
+    try{
+      await Donation.forge({
+        firstName : req.body.firstName,
+        lastName : req.body.lastName,
+        emailAddress : req.body.emailAddress,
+        phoneNumber : req.body.phoneNumber,
+        address : req.body.address,
+        state : req.body.state,
+        donationFor : req.body.donationFor
+      }).save();
+      res.json({success:true});
+    }catch(e){
+      res.json({success:false,error:e});
+    }
   }
 }
