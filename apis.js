@@ -55,7 +55,8 @@ module.exports = {
         phoneNumber : req.body.phoneNumber,
         address : req.body.address,
         state : req.body.state,
-        donationFor : req.body.donationFor
+        donationFor : req.body.donationFor,
+        comments : req.body.comments
       }).save();
       res.json({success:true});
     }catch(e){
