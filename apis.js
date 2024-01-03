@@ -99,9 +99,7 @@ module.exports = {
       .fetch()
       .then((lFetchedAppUser) => {
         console.log(lFetchedAppUser);
-        if(lFetchedAppUser.models.length > 0){
-          fetchedAppUser = lFetchedAppUser.models[0];
-        }
+          fetchedAppUser = lFetchedAppUser;
       })
       .catch((err) => {
         console.log(err);
