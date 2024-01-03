@@ -2,6 +2,8 @@ const CacheData = require("./models/CacheData.js");
 const Donation = require("./models/Donation.js");
 const Contact = require("./models/ContactForm.js");
 const Newsletter = require("./models/Newsletter.js");
+const Users = require("./models/User.js");
+const jwt = require('jsonwebtoken');
 
 module.exports = {
 
@@ -87,5 +89,38 @@ module.exports = {
     }catch(e){
       res.json({success:false,error:e});
     }
+  },
+  login : async function(req,res){
+    var username = req.body.username;
+    var password = req.body.password;
+    let fetchedAppUser;
+    try{
+      await Users.where('username',username).where('password',password)
+      .fetch()
+      .then((lFetchedAppUser) => {
+        console.log(lFetchedAppUser);
+        if(lFetchedAppUser.models.length > 0){
+          fetchedAppUser = lFetchedAppUser.models[0];
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        fetchedAppUser = undefined;
+      });
+    }catch(e){
+      console.log(e);
+      fetchedAppUser = undefined;
+    }
+
+    console.log(fetchedAppUser);
+    let jwtSecretKey = process.env.JWT_SECRET_KEY; 
+    let data = { 
+        time: Date(), 
+        userId: fetchedAppUser.attributes.id, 
+    } 
+  
+    const token = jwt.sign(data, jwtSecretKey); 
+  
+    res.send(token); 
   }
 }

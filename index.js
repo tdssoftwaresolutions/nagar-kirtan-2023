@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const cors  = require('cors')
 const PORT = process.env.PORT || 5000
+const dotenv = require('dotenv'); 
 const bodyParser = require('body-parser');
 
 var app = express();
@@ -11,7 +12,7 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => res.render('pages/index'))
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 app.use(express.static(__dirname + 'public'));
-
+dotenv.config(); 
 var corsOptions = {
   origins: [
     "https://gurdwaraanandvihar.com",
