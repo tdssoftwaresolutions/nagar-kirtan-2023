@@ -2,10 +2,10 @@ module.exports = {
   development: {
     client: 'mysql',  
     connection: {  
-     user: 'mebonixi_restapitestuser',  
-     password: 'iaXCDIuWWMHJ',
-     host: 'inpro11.fcomet.com',  
-     database: 'mebonixi_jjjk_server'  
+     user: 'u542279038_nagarkirtan',  
+     password: 'Tdssaini@123',
+     host: 'srv1675.hstgr.io',  
+     database: 'u542279038_nagarkirtan'  
     },
     pool: { min: 1, max: 20 }
   },
@@ -13,10 +13,10 @@ module.exports = {
   production: {
     client: 'mysql',  
     connection: {  
-    user: 'mebonixi_restapitestuser',  
-    password: 'iaXCDIuWWMHJ',
-    host: 'inpro11.fcomet.com',  
-    database: 'mebonixi_jjjk_server'  
+    user: 'u542279038_nagarkirtan',  
+    password: 'Tdssaini@123',
+    host: 'srv1675.hstgr.io',  
+    database: 'u542279038_nagarkirtan'  
     },
     pool: {
       min: 2,

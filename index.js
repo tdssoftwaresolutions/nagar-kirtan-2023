@@ -15,7 +15,8 @@ app.use(express.static(__dirname + 'public'));
 var corsOptions = {
   origins: [
     "https://gurdwaraanandvihar.com",
-    "https://nagarkirtan.gurdwaraanandvihar.com/"
+    "https://nagarkirtan.gurdwaraanandvihar.com/",
+    "https://gurdwaraanandvihar.com/nagarkirtan2024/"
   ],
   credentials: true,
   optionSuccessStatus: 200
