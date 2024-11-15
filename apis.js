@@ -3,7 +3,7 @@ const CacheData = require("./models/CacheData.js");
 module.exports = {
 
   updateLocation : async function(req,res){
-    var data = req.body.location;
+    var location = req.body.location;
     var returnData = await CacheData.forge({
       location : location,
     }).save();
